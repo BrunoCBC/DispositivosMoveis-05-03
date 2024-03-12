@@ -1,8 +1,9 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -14,104 +15,103 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Teste'),
-        // leading: IconButton(
-        //   onPressed: () {},
-        //   icon: Icon(Icons.open_in_new),
-        // ),
-        actions: <Widget>[
-          IconButton(onPressed: () {}, icon: Icon(Icons.refresh)),
-          PopupMenuButton(itemBuilder: ((context) {
-            return [
-              PopupMenuItem(
-                value: 0,
-                child: Text('My Account'),
-              ),
-              PopupMenuItem(
-                value: 0,
-                child: Text('Settings'),
-              ),
-              PopupMenuItem(
-                value: 0,
-                child: Text('Logout'),
-              ),
-            ];
-          }))
-        ],
-      ),
-      // drawer: Drawer(
-      //     child: ListView(
-      //   children: <Widget>[
-      //     ListTile(
-      //       leading: Icon(Icons.open_with_rounded),
-      //       title: Text('Item 1'),
-      //       onTap: () {},
-      //     ),
-      //     ListTile(
-      //       leading: Icon(Icons.dialer_sip_rounded),
-      //       title: Text('Item 1'),
-      //       onTap: () {},
-      //     ),
-      //     Divider(
-      //       height: 10,
-      //     ),
-      //     ExpansionTile(
-      //       childrenPadding: EdgeInsetsDirectional.only(),
-      //       title: Text('Lista Expansivel'),
-      //       leading: Icon(Icons.person_add),
-      //       children: [
-      //         ListTile(
-      //           leading: Icon(Icons.dialer_sip_rounded),
-      //           title: Text(''),
-      //           onTap: () {},
-      //         ),
-      //         ListTile(
-      //           leading: Icon(Icons.add),
-      //           title: Text(''),
-      //           onTap: () {},
-      //         ),
-      //       ],
-      //     )
-      //   ],
-      // )),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            alignment: Alignment.center,
-            height: 300,
-            width: 250,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(
-                  'assets/images/Odin',
-                ),
-              ),
-            ),
-          ),
-          Card(
-            elevation: 5,
-            color: Color.fromARGB(255, 62, 94, 235),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                Icon(Icons.person),
-                SizedBox(
-                  height: 30,
-                  width: 210,
-                ),
-                Text(
-                  'Odin',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                )
+          title: Text('Aula 12 03'),
+          backgroundColor: Theme.of(context).colorScheme.primary),
+      body: Center(
+        child: Container(
+          height: 180,
+          width: 330,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Color.fromARGB(255, 53, 53, 53),
+                Color.fromARGB(255, 122, 122, 122),
               ]),
-            ),
-          )
-        ],
+              borderRadius: BorderRadius.circular(20)),
+          child: Stack(
+            children: [
+              Positioned(
+                right: 10,
+                top: 10,
+                bottom: 60,
+                child: Container(
+                  width: 110,
+                  height: 110,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/Odin2.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 20,
+                top: 25,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Odin',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'All-Father',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                    Text(
+                      'Vallhalla',
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.phone_callback,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          '+ ',
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Icon(
+                          Icons.email,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'teste@teste.com',
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -123,35 +123,35 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        color: Colors.cyan,
+        color: Color.fromARGB(255, 53, 53, 53),
         notchMargin: 8,
         shape: const CircularNotchedRectangle(),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           IconButton(
             icon: const Icon(
               Icons.menu,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onPressed: () {},
           ),
           IconButton(
             icon: const Icon(
               Icons.search,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onPressed: () {},
           ),
           IconButton(
             icon: const Icon(
               Icons.print,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onPressed: () {},
           ),
           IconButton(
             icon: const Icon(
               Icons.people,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onPressed: () {},
           ),
